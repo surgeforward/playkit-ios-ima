@@ -1,7 +1,8 @@
 #!/bin/bash
 
-set -e -o pipefail
+TRAVIS_EVENT_TYPE=cron  # TODO: fix
 
+set -e -o pipefail
 
 # Login to cocoapods trunk.
 login() {
@@ -41,8 +42,6 @@ libLint() {
 
 FLAG=$(mktemp)
 keepAlive $FLAG &
-
-TRAVIS_EVENT_TYPE=core  # TODO: fix
 
 if [[ $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   # If we're building a release tag (v1.2.3) push to cocoapods
