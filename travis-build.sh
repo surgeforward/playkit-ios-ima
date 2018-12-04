@@ -2,6 +2,7 @@
 
 set -e -o pipefail
 
+
 # Login to cocoapods trunk.
 login() {
 cat << EOF > ~/.netrc
